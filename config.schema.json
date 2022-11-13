@@ -1,0 +1,63 @@
+{
+	"pluginAlias": "WizSmartHome",
+	"pluginType": "platform",
+	"singular": true,
+	"schema": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"title": "Name",
+				"type": "string",
+				"default": "WizSmartHome"
+			},
+			"port": {
+				"title": "Port",
+				"type": "integer",
+				"description": "[Optional] Port for bulbs to connect to your server.",
+				"placeholder": 38900,
+				"minimum": 0
+			},
+			"enableScenes": {
+				"title": "Enable Scenes",
+				"type": "boolean",
+				"description": "[Optional] Turn on support for scenes with your lightbulbs. THIS WILL MAKE IT IMPOSSIBLE TO GROUP LIGHTS",
+				"default": false
+			},
+			"broadcast": {
+				"title": "Broadcast Address",
+				"type": "string",
+				"format": "ipv4",
+				"description": "[Optional] UDP Broadcast address for bulb discovery."
+			},
+			"address": {
+				"title": "Server Address",
+				"type": "string",
+				"format": "ipv4",
+				"description": "[Optional] Your server's IP address."
+			},
+			"devices": {
+				"title": "Devices",
+				"type": "array",
+				"description": "[Optional] Manual list of IP addresses of bulbs",
+				"items": {
+					"type": "object",
+					"properties": {
+						"host": {
+							"title": "Device IP",
+							"type": "string",
+							"format": "ipv4"
+						},
+						"name": {
+							"title": "Device Name",
+							"type": "string"
+						},
+						"mac": {
+							"title": "Device MAC",
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	}
+}
