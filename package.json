@@ -1,6 +1,7 @@
 {
 	"name": "homebridge-wiz-net",
-	"version": "1.0.0",
+	"version": "1.0.1",
+	"type": "module",
 	"description": "Control Wiz products over network.",
 	"main": "dist/index.js",
 	"repository": {
@@ -22,10 +23,11 @@
 	},
 	"scripts": {
 		"clean": "rimraf ./dist",
-    	"build": "rimraf ./dist && npm run build:full",
-		"build:full": "esbuild src/index.ts --outfile=dist/index.js --bundle --platform=node --target=node12",
-		"build:slim": "esbuild src/index.ts --outfile=dist/index.js --minify --bundle --platform=node --target=node12 --external:./node_modules/*",
-		"build:dev": "esbuild src/index.ts --outfile=debug/index.js --sourcemap --bundle --platform=node --target=node12",
+    	"build": "rimraf ./dist && npm run build:slim",
+		"build:full": "esbuild src/index.ts --outfile=dist/index.js --bundle --platform=node --target=es2018,node12",
+		"build:slim": "esbuild src/index.ts --outfile=dist/index.js --bundle --platform=node --target=es2018,node12 --external:./node_modules/* --format=esm",
+		"build:slim:min": "esbuild src/index.ts --outfile=dist/index.js --minify --bundle --platform=node --target=es2018,node12 --external:./node_modules/*",
+		"build:dev": "esbuild src/index.ts --outfile=debug/index.js --sourcemap --bundle --platform=node --target=es2018,node12",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"devDependencies": {
