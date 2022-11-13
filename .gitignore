@@ -1,0 +1,28 @@
+# ignore IDE files and folders
+.idea
+*.sublime-workspace
+*.sublime-project
+
+# ignore hidden OSX files
+Network Trash Folder
+Temporary Items
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+.apdisk
+
+# ignore temporary code files
+._*
+_*
+!_default
+!_*.scss
+
+# ignore node dependencies
+node_modules/
+
+# ignore build folder
+dist/
